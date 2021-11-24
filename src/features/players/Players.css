@@ -1,0 +1,30 @@
+.waiting-players {
+  display: inline-flex;
+}
+
+.selecting-player {
+  margin: 10px;
+  padding: 5px;
+  border: 4px solid black;
+}
+
+.eligible-players {
+  margin: 10px;
+  margin-left: 5px;
+  padding: 6px;
+  border: 1px solid black;
+}
+
+.name-button {
+  margin: 2px;
+  width: 150px;
+  height: 150px;
+  line-height: 10px;
+  font-size: 16px;
+}
+
+.sel:hover {
+  position: relative;
+  top: 10px;
+}
+

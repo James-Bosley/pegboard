@@ -1,0 +1,26 @@
+.games-section {
+  display: inline-flex;
+  margin: 10px;
+} 
+
+.games-waiting, .games-on {
+  margin: 5px;
+  padding-bottom: 15px;
+  border: 1px solid black;
+  width: 450px;
+}
+
+h3 {
+  text-align: center;
+}
+
+.game-box {
+  border: 1px solid black;
+  width: 350px;
+  height: 100px;
+  text-align: center;
+  margin: 5px auto;
+  font-size: 16px;
+  background-color: lightgray;
+  line-height: 3px;
+}
