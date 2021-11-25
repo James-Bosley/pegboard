@@ -1,0 +1,33 @@
+.nav-container {
+  width: 100%;
+}
+
+nav {
+  display: inline-flex;
+  width: 80%;
+  margin: 10px 10%;
+  padding: 10px;
+  background-color: lightseagreen;
+  border-radius: 5px;
+}
+
+h1 {
+  margin-left: 20px;
+}
+
+form {
+  margin-top: 25px;
+  margin-left: 40px;
+}
+
+input {
+  width: 50px;
+  margin-left: 10px;
+  margin-right: 5px;
+  background-color: lightgray;
+  border-radius: 5px;
+}
+
+button {
+  border-radius: 5px;
+}

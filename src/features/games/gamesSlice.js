@@ -4,7 +4,8 @@ const numberOfCourts = 3;
 
 const initialState = {
   waiting: [],
-  onCourt: []
+  onCourt: [],
+  completed: []
 }
 
 export const gamesSlice = createSlice({
@@ -15,12 +16,13 @@ export const gamesSlice = createSlice({
       state.waiting.push(action.payload);
     },
     gameOn: (state) => {
-      if(state.onCourt.length < numberOfCourts) {
+      if(state.waiting.length > 0 && state.onCourt.length < numberOfCourts) {
         const game = state.waiting.shift();
         state.onCourt.push(game);
       }
     },
     gameOver: (state, action) => {
+      state.completed.push(action.payload);
       state.onCourt = state.onCourt.filter(game => {
         return game.id !== action.payload.id;
       })

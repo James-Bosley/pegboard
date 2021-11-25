@@ -1,6 +1,6 @@
 .games-section {
   display: inline-flex;
-  margin: 10px;
+  margin: 45px 10px;
 } 
 
 .games-waiting, .games-on {
@@ -17,10 +17,18 @@ h3 {
 .game-box {
   border: 1px solid black;
   width: 350px;
-  height: 100px;
+  height: 130px;
   text-align: center;
   margin: 5px auto;
   font-size: 16px;
-  background-color: lightgray;
+  background-color: lightseagreen;
   line-height: 3px;
+}
+
+.score-form input {
+  margin-left: 2px;
+}
+
+.score-form {
+  margin: 20px auto;
 }

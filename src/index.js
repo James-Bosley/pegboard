@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import PlayersWaiting from './features/players/Players';
 import GamesWaiting from './features/games/GamesWaiting';
+import NavBar from './features/navbar/NavBar';
 import { store } from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
@@ -10,6 +11,7 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      <NavBar />
       <PlayersWaiting />
       <GamesWaiting />
     </Provider>
