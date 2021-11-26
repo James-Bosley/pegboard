@@ -1,19 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { loadPlayers, loadNextId } from '../../playerData';
 
-// Initial state is hardcoded here. A final implementation should fetch player data from a database.
+// Reducer imports players from playerData.js. A final implementation should fetch player data from a database.
 
 const initialState = {
-  registeredPlayers: {
-    1: { firstName: 'James', lastName: 'Bosley', gender: 'M', handedness: 'L', id: 1, wins: 0 },
-    2: { firstName: 'Priyank', lastName: 'Patel', gender: 'M', handedness: 'L', id: 2, wins: 0 },
-    3: { firstName: 'Ponsudahar', lastName: 'Kamaraj', gender: 'M', handedness: 'R', id: 3, wins: 0},
-    4: { firstName: 'Paul', lastName: 'Smith', gender: 'M', handedness: 'R', id: 4, wins: 0},
-    5: { firstName: 'Fasih', lastName: 'Khan', gender: 'M', handedness: 'R', id: 5, wins: 0},
-    6: { firstName: 'Charles', lastName: 'Joseph', gender: 'M', handedness: 'R', id: 6, wins: 0},
-    7: { firstName: 'Emma', lastName: 'Rudduck', gender: 'F', handedness: 'R', id: 7, wins: 0},
-    8: { firstName: 'Emily', lastName: 'Stevenson', gender: 'F', handedness: 'R', id: 8, wins: 0},
-    9: { firstName: 'Janet', lastName: 'Williams', gender: 'F', handedness: 'R', id: 9, wins: 0}
-  },
+  registeredPlayers: {},
+  nextId: null,
   playerQueue: []
 };
 
@@ -21,8 +13,13 @@ export const playersSlice = createSlice({
   name: 'players',
   initialState: initialState,
   reducers: {
+    load: (state) => {
+      state.registeredPlayers = loadPlayers();
+      state.nextId = loadNextId();
+    },
     registerPlayer: (state, action) => {
       state.registeredPlayers[action.payload.id] = action.payload;
+      state.nextId++
     },
     unregisterPlayer: (state, action) => {
       delete state.registeredPlayers[action.payload];
@@ -59,12 +56,10 @@ export const playersSlice = createSlice({
   }
 });
 
-// Exporting reducer actions.
-export const { registerPlayer, unregisterPlayer, enqueue, dequeue, incrementWins } = playersSlice.actions;
+export const { load, registerPlayer, unregisterPlayer, enqueue, dequeue, incrementWins } = playersSlice.actions;
 
-// Exporting selectors.
 export const selectPlayers = (state) =>  state.players.registeredPlayers;
 export const selectPlayerQueue = (state) => state.players.playerQueue;
+export const selectNextId = (state) => state.players.nextId;
 
-// Exporting reducer.
 export default playersSlice.reducer;

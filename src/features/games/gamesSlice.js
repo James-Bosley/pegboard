@@ -30,12 +30,9 @@ export const gamesSlice = createSlice({
   }
 });
 
-// Exporting reducer actions.
 export const { addGame, gameOn, gameOver } = gamesSlice.actions;
 
-// Exporting selectors.
 export const selectGamesWaiting = (state) => state.games.waiting;
 export const selectOnCourt = (state) => state.games.onCourt;
 
-// Exporting reducer.
 export default gamesSlice.reducer;

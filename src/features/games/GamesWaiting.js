@@ -42,43 +42,45 @@ function GamesWaiting() {
     setPairTwo();
   }
 
-  return (
-    <div>
-      <div className='games-section'>
-        <div className='games-waiting'>
-          <h3>Games Waiting</h3>
-          {games.map(game => {
-            return (
-              <div className='game-box'>
-                <h4>{presentPlayers[game.players[0]].firstName} {presentPlayers[game.players[0]].lastName} & {presentPlayers[game.players[1]].firstName} {presentPlayers[game.players[1]].lastName}</h4>
-                <h5>vs.</h5>
-                <h4>{presentPlayers[game.players[2]].firstName} {presentPlayers[game.players[2]].lastName} & {presentPlayers[game.players[3]].firstName} {presentPlayers[game.players[3]].lastName}</h4>
-              </div>  
-            )
-          })}
+  if(games.length > 0 || gamesOn.length > 0) {
+    return (
+        <div className='games-section'>
+          <div className='games-waiting'>
+            <h3>Games Waiting</h3>
+            {games.map(game => {
+              return (
+                <div className='game-box'>
+                  <h4>{presentPlayers[game.players[0]].firstName} {presentPlayers[game.players[0]].lastName} & {presentPlayers[game.players[1]].firstName} {presentPlayers[game.players[1]].lastName}</h4>
+                  <h5>vs.</h5>
+                  <h4>{presentPlayers[game.players[2]].firstName} {presentPlayers[game.players[2]].lastName} & {presentPlayers[game.players[3]].firstName} {presentPlayers[game.players[3]].lastName}</h4>
+                </div>  
+              )
+            })}
+          </div>
+          <div className='games-on'>
+            <h3>On Court</h3>
+            {gamesOn.map(game => {
+              return (
+                <div className='game-box'>
+                  <h4>{presentPlayers[game.players[0]].firstName} {presentPlayers[game.players[0]].lastName} & {presentPlayers[game.players[1]].firstName} {presentPlayers[game.players[1]].lastName}</h4>
+                  <h5>vs.</h5>
+                  <h4>{presentPlayers[game.players[2]].firstName} {presentPlayers[game.players[2]].lastName} & {presentPlayers[game.players[3]].firstName} {presentPlayers[game.players[3]].lastName}</h4>
+                  <form className='score-form' onSubmit={onSubmit}>
+                    <label>Score: </label>
+                    <input type='number' max='21' value={pairOne} onChange={handleChangeOne} placeholder='Pair 1'></input>
+                    <label>- </label>
+                    <input type='number' max='21' value={pairTwo} onChange={handleChangeTwo} placeholder='Pair 2'></input>
+                    <button type='submit' value={game.id}>Submit</button>
+                  </form>
+                </div>  
+              )
+            })}
+          </div>
         </div>
-        <div className='games-on'>
-          <h3>On Court</h3>
-          {gamesOn.map(game => {
-            return (
-              <div className='game-box'>
-                <h4>{presentPlayers[game.players[0]].firstName} {presentPlayers[game.players[0]].lastName} & {presentPlayers[game.players[1]].firstName} {presentPlayers[game.players[1]].lastName}</h4>
-                <h5>vs.</h5>
-                <h4>{presentPlayers[game.players[2]].firstName} {presentPlayers[game.players[2]].lastName} & {presentPlayers[game.players[3]].firstName} {presentPlayers[game.players[3]].lastName}</h4>
-                <form className='score-form' onSubmit={onSubmit}>
-                  <label>Score: </label>
-                  <input type='number' max='21' value={pairOne} onChange={handleChangeOne} placeholder='Pair 1'></input>
-                  <label>- </label>
-                  <input type='number' max='21' value={pairTwo} onChange={handleChangeTwo} placeholder='Pair 2'></input>
-                  <button type='submit' value={game.id}>Submit</button>
-                </form>
-              </div>  
-            )
-          })}
-        </div>
-      </div>
-    </div>
-  )
+    )
+  } else {
+    return null;
+  }
 }
 
 export default GamesWaiting;

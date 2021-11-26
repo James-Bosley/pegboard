@@ -1,9 +1,8 @@
-.nav-container {
+.reg-form-container {
   width: 100%;
 }
 
-nav {
-  display: inline-flex;
+.reg-form {
   width: 80%;
   margin: 10px 10%;
   padding: 10px;
@@ -11,22 +10,18 @@ nav {
   border-radius: 5px;
 }
 
-h1 {
+.reg-form label {
   margin-left: 20px;
 }
 
-form {
-  margin-top: 25px;
-  margin-left: 70px;
+.reg-form .names {
+  width: 120px;
 }
 
-input {
-  width: 50px;
+select {
+  width: 80px;
   margin-left: 10px;
   margin-right: 5px;
   border-radius: 5px;
 }
 
-button {
-  border-radius: 5px;
-}

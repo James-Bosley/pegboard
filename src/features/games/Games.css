@@ -1,6 +1,7 @@
 .games-section {
   display: inline-flex;
-  margin: 45px 10px;
+  margin: 45px 20%;
+
 } 
 
 .games-waiting, .games-on {
@@ -16,6 +17,7 @@ h3 {
 
 .game-box {
   border: 1px solid black;
+  border-radius: 5px;
   width: 350px;
   height: 130px;
   text-align: center;
