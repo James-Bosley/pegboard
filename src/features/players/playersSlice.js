@@ -5,7 +5,7 @@ import { loadPlayers, loadNextId } from '../../playerData';
 
 const initialState = {
   registeredPlayers: {},
-  nextId: null,
+  nextId: 0,
   playerQueue: []
 };
 

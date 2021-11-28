@@ -4,9 +4,9 @@ import Register from "../register/Register";
 import './Nav.css';
 
 function NavBar() {
-  const [uidIn, setUidIn] = useState()
-  const [uidOut, setUidOut] = useState()
-  const [toggleReg, setToggleReg] = useState(false)
+  const [uidIn, setUidIn] = useState('');
+  const [uidOut, setUidOut] = useState('');
+  const [toggleReg, setToggleReg] = useState(false);
 
   const dispatch = useDispatch();
 
